@@ -4974,7 +4974,7 @@ end)
 GeneralSection:NewButton("Deadlift Simulator GUI", "A GUI for all of your deadlift needs.", function()
 --THIS GUI WAS MADE BY ALEXI THE FEMBOY. NOT MY GUI LIBRARY!
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Deadlift Simulator GUI", "GrapeTheme")
+local Window = Library.CreateLib("Deadlift Simulator GUI Snapshot 23w32a", "GrapeTheme")
 
 --Tabs
 local IMPORTANT = Window:NewTab("IMPORTANT")
@@ -4993,9 +4993,10 @@ local Zone5Section = Zone5:NewSection("Teleports")
 local IMPORTANTSection = IMPORTANT:NewSection("IMPORTANT")
 local AutomationSection = Automation:NewSection("Automation")
 --Text
+IMPORTANTSection:NewLabel("This is a snapshot! You may encounter bugs!")
 IMPORTANTSection:NewLabel("This GUI was made by Alexi The Femboy")
 IMPORTANTSection:NewLabel("The GUI Library was made by xHeptic")
-
+IMPORTANTSection:NewLabel("Join the discord! https://discord.gg/nd9653WUpA")
 --Toggles
 IMPORTANTSection:NewKeybind("Toggle UI", "Closes the ui", Enum.KeyCode.P, function()
 Library:ToggleUI()
