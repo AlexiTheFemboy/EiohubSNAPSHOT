@@ -33,71 +33,9 @@ _G.Keybind = 'Q' -- This is usually defaulted to Q. However, you can change to w
 _G.Method = 1 -- 1 for the new method, 2 for the emoji method. If not defined, it will be defaulted to 1.
 loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser",true))()
 end)
-UniversalSection:NewButton("Auto Clicker", "Press F5 to start, press F6 to end.", function()
-		local on
-local keybind=Enum.KeyCode.F5
-local keybindEnd=Enum.KeyCode.F6
-local UserInputService=game:GetService("UserInputService")
-local RunService=game:GetService("RunService")
-local plr=game:GetService("Players").LocalPlayer
-local mouse=plr:GetMouse()
 
-local sg=Instance.new("ScreenGui",plr.PlayerGui)
-local f=Instance.new("TextLabel",sg)
-f.Size=UDim2.new(0,25,0,10)
-f.BackgroundColor3=Color3.fromRGB(180,50,50)
-f.Visible=false
-f.Text="On"
-f.TextSize=11
-
-local vu = game:GetService("VirtualUser")
-local function CC()
-vu:CaptureController();
-end 
-local function CB()
-local v2 = Vector2.new();
-vu:ClickButton1(v2);
-end
-
-function Start(a,b)
-   if a.KeyCode==keybind then
-       on=true
-       a=RunService.Stepped:Connect(function()
-           if on then
-               CC();
-               CB();
-               f.Visible=true
-               f.Position=UDim2.new(0,mouse.X-12.5,0,mouse.Y-15)
-           else
-               a:Disconnect()
-           end
-       end)
-       f.Visible=false
-   end
-end
-
-function Stop(a,b)
-   if a.KeyCode==keybindEnd then
-       on=false
-       f.Visible=false
-   end
-end
-
-UserInputService.InputBegan:connect(Start)
-UserInputService.InputEnded:connect(Stop)
-	end)
 UniversalSection:NewButton("Simple Spy", "Lets you view and access local scripts.", function()
---[[
-    SimpleSpy v2.2 SOURCE
 
-    SimpleSpy is a lightweight penetration testing tool that logs remote calls.
-
-    Credits:
-        exx - basically everything
-        Frosty - GUI to Lua
-]]
-
--- shuts down the previous instance of SimpleSpy
 if _G.SimpleSpyExecuted and type(_G.SimpleSpyShutdown) == "function" then
 	print(pcall(_G.SimpleSpyShutdown))
 end
@@ -5027,7 +4965,7 @@ end)
 GeneralSection:NewButton("Deadlift Simulator GUI", "A GUI for all of your deadlift needs.", function()
 --THIS GUI WAS MADE BY ALEXI THE FEMBOY. NOT MY GUI LIBRARY!
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Deadlift Simulator GUI Snapshot 23w33a", "GrapeTheme")
+local Window = Library.CreateLib("Deadlift Simulator GUI Version 1.0", "GrapeTheme")
 
 --Tabs
 local IMPORTANT = Window:NewTab("IMPORTANT")
@@ -5046,7 +4984,6 @@ local Zone5Section = Zone5:NewSection("Teleports")
 local IMPORTANTSection = IMPORTANT:NewSection("IMPORTANT")
 local AutomationSection = Automation:NewSection("Automation")
 --Text
-IMPORTANTSection:NewLabel("This is a snapshot! You may encounter bugs!")
 IMPORTANTSection:NewLabel("This GUI was made by Alexi The Femboy")
 IMPORTANTSection:NewLabel("The GUI Library was made by xHeptic")
 IMPORTANTSection:NewLabel("Join the discord! https://discord.gg/nd9653WUpA")
