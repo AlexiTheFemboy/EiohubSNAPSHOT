@@ -1,6 +1,6 @@
 --This was made by Alexi The Femboy!
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Eiohub SNAPSHOT 23w32a", "GrapeTheme")
+local Window = Library.CreateLib("Eiohub SNAPSHOT 23w33a", "GrapeTheme")
 
 --Main
 local IMPORTANT = Window:NewTab("IMPORTANT")
@@ -28,11 +28,64 @@ end)
 UniversalSection:NewButton("InfiniteYield", "Gives you admin commands. No kick/ban.", function()
     loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Infinite%20Yield.txt"))()
 end)
-UniversalSection:NewButton("Chat Bypass", "Allows you to completely bypass the chat filter. Do note the fact that it might prevent you from using caps! Also, it might not work in some games.", function()
+UniversalSection:NewButton("Chat Bypass", "Allows you to completely bypass the chat filter. Do note the fact that it prevents you from using caps! Also, it might not work in some games.", function()
 _G.Keybind = 'Q' -- This is usually defaulted to Q. However, you can change to whatever you want.
 _G.Method = 1 -- 1 for the new method, 2 for the emoji method. If not defined, it will be defaulted to 1.
 loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser",true))()
 end)
+UniversalSection:NewButton("Auto Clicker", "Press F5 to start, press F6 to end.", function()
+		local on
+local keybind=Enum.KeyCode.F5
+local keybindEnd=Enum.KeyCode.F6
+local UserInputService=game:GetService("UserInputService")
+local RunService=game:GetService("RunService")
+local plr=game:GetService("Players").LocalPlayer
+local mouse=plr:GetMouse()
+
+local sg=Instance.new("ScreenGui",plr.PlayerGui)
+local f=Instance.new("TextLabel",sg)
+f.Size=UDim2.new(0,25,0,10)
+f.BackgroundColor3=Color3.fromRGB(180,50,50)
+f.Visible=false
+f.Text="On"
+f.TextSize=11
+
+local vu = game:GetService("VirtualUser")
+local function CC()
+vu:CaptureController();
+end 
+local function CB()
+local v2 = Vector2.new();
+vu:ClickButton1(v2);
+end
+
+function Start(a,b)
+   if a.KeyCode==keybind then
+       on=true
+       a=RunService.Stepped:Connect(function()
+           if on then
+               CC();
+               CB();
+               f.Visible=true
+               f.Position=UDim2.new(0,mouse.X-12.5,0,mouse.Y-15)
+           else
+               a:Disconnect()
+           end
+       end)
+       f.Visible=false
+   end
+end
+
+function Stop(a,b)
+   if a.KeyCode==keybindEnd then
+       on=false
+       f.Visible=false
+   end
+end
+
+UserInputService.InputBegan:connect(Start)
+UserInputService.InputEnded:connect(Stop)
+	end)
 UniversalSection:NewButton("Simple Spy", "Lets you view and access local scripts.", function()
 --[[
     SimpleSpy v2.2 SOURCE
@@ -4974,7 +5027,7 @@ end)
 GeneralSection:NewButton("Deadlift Simulator GUI", "A GUI for all of your deadlift needs.", function()
 --THIS GUI WAS MADE BY ALEXI THE FEMBOY. NOT MY GUI LIBRARY!
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Deadlift Simulator GUI Snapshot 23w32a", "GrapeTheme")
+local Window = Library.CreateLib("Deadlift Simulator GUI Snapshot 23w33a", "GrapeTheme")
 
 --Tabs
 local IMPORTANT = Window:NewTab("IMPORTANT")
@@ -5185,7 +5238,7 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
 game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
 end)
-Zone4Section:NewButton("Teleport to Lava", "Teleports you to Zone 4.", function()
+Zone4Section:NewButton("Teleport to Candy", "Teleports you to Zone 4.", function()
 local args = {
     [1] = "Lava"
 }
@@ -5233,5 +5286,63 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
 game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
 end)
-Zone5Section:NewLabel("Unfinished - Have not gotten there yet.")
+Zone5Section:NewButton("Teleport to Candy", "Teleports you to Zone 5.", function()
+local args = {
+    [1] = "Candy"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Events.RequestZone:FireServer(unpack(args))
+end)
+Zone5Section:NewLabel("Fights")
+Zone5Section:NewButton("Fight Lord Candy", "Does as the name states.", function()
+-- Script made by Alexi The Femboy
+local args = {
+    [1] = "LordCandy"
+    }
+game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
+end)
+Zone5Section:NewButton("Fight Vanellope", "Does as the name states.", function()
+-- Script made by Alexi The Femboy
+local args = {
+    [1] = "Vanellope"
+    }
+game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
+end)
+Zone5Section:NewButton("Fight Gingerbread Man", "Does as the name states.", function()
+-- Script made by Alexi The Femboy
+local args = {
+    [1] = "GingerbreadMan"
+    }
+game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
+end)
+Zone5Section:NewButton("Fight Factory Man", "Does as the name states.", function()
+-- Script made by Alexi The Femboy
+local args = {
+    [1] = "Factory"
+    }
+game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
+end)
+Zone5Section:NewButton("Fight Gummy Bear", "Does as the name states.", function()
+-- Script made by Alexi The Femboy
+local args = {
+    [1] = "GummyBear"
+    }
+game:GetService("ReplicatedStorage").Remotes.Events.UpdateNPC:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Events.ForceFight:FireServer()
+end)
+end)
+GeneralSection:NewButton("Instant Heal for Be a Parkour Ninja", "Press Z to activate.", function()
+--Script made by Alexi The Femboy
+local uis = game:GetService("UserInputService")
+uis.InputBegan:Connect(function(input)
+if input.KeyCode == Enum.KeyCode.Z then
+
+game:GetService("ReplicatedStorage").RemoteTriggers.SpawnIn:FireServer()
+
+end
+end)
 end)
