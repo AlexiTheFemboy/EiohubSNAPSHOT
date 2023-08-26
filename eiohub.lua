@@ -1,6 +1,6 @@
 --This was made by Alexi The Femboy!
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Eiohub SNAPSHOT 23w33a", "GrapeTheme")
+local Window = Library.CreateLib("Eiohub SNAPSHOT 23w34a", "GrapeTheme")
 
 --Main
 local IMPORTANT = Window:NewTab("IMPORTANT")
@@ -4481,7 +4481,7 @@ newButton(
         TextLabel.Text = "Executing..."
         local succeeded = pcall(function() return loadstring(codebox:getString())() end)
         if succeeded then
-            TextLabel.Text = "Executed successfully!"
+            TextLabel.Text = "Executed successfully"
         else
             TextLabel.Text = "Execution error!"
         end
@@ -5282,4 +5282,7 @@ game:GetService("ReplicatedStorage").RemoteTriggers.SpawnIn:FireServer()
 
 end
 end)
+				GeneralSection:NewButton("Autofarm GUI for Strongest Punch Simulator.", "Pretty simple shit. Just activate the fuckin script.", function()
+						loadstring(game:HttpGet("https://raw.githubusercontent.com/Henry887/Strongest-Punch-Simulator-GUI/main/gui.lua", true))()
+					end)
 end)
